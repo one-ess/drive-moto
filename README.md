@@ -45,6 +45,6 @@ Dev зависимости:
 
 Результат:
 
-[Главная](https://one-ess.github.io/gidroshop/build/index.html)  
-[Каталог](https://one-ess.github.io/gidroshop/build/catalog.html)  
-[Товар](https://one-ess.github.io/gidroshop/build/product.html)
+[Главная](https://drive-moto-nu.vercel.app/)  
+[Каталог](https://drive-moto-nu.vercel.app/catalog.html)  
+[Товар](https://drive-moto-nu.vercel.app/product.html)
