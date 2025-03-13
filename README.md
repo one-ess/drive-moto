@@ -45,6 +45,6 @@ Dev зависимости:
 
 Результат:
 
-[Главная](https://drive-moto-nu.vercel.app/){:target="_blank"}    
-[Каталог](https://drive-moto-nu.vercel.app/catalog.html){:target="_blank"}  
-[Товар](https://drive-moto-nu.vercel.app/product.html){:target="_blank"}
+[Главная](https://drive-moto-nu.vercel.app/)  
+[Каталог](https://drive-moto-nu.vercel.app/catalog.html)  
+[Товар](https://drive-moto-nu.vercel.app/product.html)
