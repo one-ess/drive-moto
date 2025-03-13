@@ -1,0 +1,33 @@
+@use "../settings/vars" as *;
+
+.breadcrumbs {
+  padding: 40px 0;
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 8px;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+      &::before {
+        content: url("./img/dropdown.svg");
+        position: absolute;
+        top: 50%;
+        right: -15px;
+        transform: translateY(-50%) rotate(-90deg) scale(0.9);
+      }
+    }
+  }
+
+  &__link {
+    font-size: 15px;
+    font-weight: 400;
+    color: $grey;
+  }
+}

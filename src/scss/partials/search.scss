@@ -1,0 +1,76 @@
+@use "../settings/vars" as *;
+
+.search {
+  &__container {
+    @media (max-width: 600px) {
+      padding: 0;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 25px;
+    white-space: nowrap;
+    overflow-x: auto;
+    @media (max-width: 600px) {
+      gap: 0px;
+    }
+  }
+}
+
+.search-tabs {
+  &__item {
+    .tab_active {
+      font-weight: 700;
+      background-color: #f0f0f4;
+    }
+  }
+
+  &__tab {
+    font-weight: 400;
+    padding: 11px 25px;
+    border-radius: 5px;
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.search-tabs-content {
+  &__item {
+    width: 100%;
+  }
+
+  &__form {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 3px;
+    font-size: 16px;
+    background-color: $basic;
+    outline-color: $accent;
+    @media (max-width: 600px) {
+      padding: 12px 20px;
+    }
+  }
+
+  &__button {
+    padding: 17px 40px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #fff;
+    border-radius: 3px;
+    text-transform: uppercase;
+    background-color: $accent;
+    @media (max-width: 600px) {
+      padding: 12px;
+    }
+  }
+}

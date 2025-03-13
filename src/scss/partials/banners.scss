@@ -1,0 +1,139 @@
+@use "../settings/vars" as *;
+
+.banners {
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 35px;
+    padding: 50px 15px;
+    @media (max-width: 900px) {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 40px;
+      padding: 50px 0;
+    }
+  }
+
+  &__swiper-container {
+    @media (max-width: 900px) {
+      width: 100%;
+    }
+  }
+
+  &__item {
+    line-height: 0;
+  }
+
+  &__link {
+    width: 100%;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__dots-container {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    z-index: 100;
+    transform: translateX(-50%);
+  }
+
+  &__dots {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #fff;
+  }
+
+  &__nav-button {
+    width: 20px;
+    &::after {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  &__offer {
+    min-height: 100%;
+    transition: all 0.3s ease;
+    &:hover {
+      box-shadow: 3px 3px 20px rgba(50, 50, 50, 0.25);
+    }
+  }
+}
+
+.offer {
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 265px;
+    height: 100%;
+    text-align: center;
+    border: 1px solid #cdcdcd;
+    border-radius: 3px;
+  }
+
+  &__top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__label {
+    align-self: flex-start;
+  }
+
+  &__price {
+    margin-top: 5px;
+    margin-right: 5px;
+    font-family: $secondFamily;
+    font-size: 27px;
+    color: $accent;
+  }
+
+  &__oldprice {
+    margin-top: 5px;
+  }
+
+  &__img {
+    margin-top: 10px;
+  }
+
+  &__title {
+    font-size: 18px;
+    line-height: 1.2;
+    flex: 1 1 100%;
+    max-width: 150px;
+    margin-bottom: 14px;
+  }
+
+  &__bottom {
+    width: 100%;
+    padding: 30px;
+    font-family: $secondFamily;
+    font-size: 18px;
+    line-height: 1.2;
+    background-color: $basic;
+    span {
+      display: inline-block;
+      margin-top: 2px;
+      color: $accent;
+    }
+  }
+}

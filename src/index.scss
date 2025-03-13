@@ -1,0 +1,19 @@
+@use "./scss/settings/fonts";
+@use "./scss/settings/null";
+@use "./scss/settings/base";
+
+@use "swiper/css/bundle";
+
+@use "./scss/global/global";
+
+@use "./scss/partials/banners";
+@use "./scss/partials/search";
+@use "./scss/partials/categories";
+@use "./scss/partials/advert";
+@use "./scss/partials/breadcrumbs";
+
+@use "./scss/sections/header";
+@use "./scss/sections/cards";
+@use "./scss/sections/catalog";
+@use "./scss/sections/product";
+@use "./scss/sections/footer";

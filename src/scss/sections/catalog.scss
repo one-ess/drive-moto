@@ -1,0 +1,507 @@
+@use "../settings/vars" as *;
+
+.catalog {
+  &__title {
+    margin-bottom: 25px;
+  }
+
+  &__sort {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 40px;
+    @media (max-width: 900px) {
+      flex-direction: column;
+      row-gap: 30px;
+    }
+  }
+
+  &__aside {
+    width: 300px;
+    flex-shrink: 0;
+    @media (max-width: 900px) {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      bottom: 0;
+      z-index: 99;
+      overflow-y: scroll;
+      width: 320px;
+      padding: 50px 0px 50px 20px;
+      background-color: #fff;
+      transition: left 0.3s ease;
+    }
+  }
+
+  &__aside_active {
+    left: 0;
+  }
+
+  &__cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 50px;
+    margin-bottom: 100px;
+  }
+
+  &__filter-mobile-button {
+    display: none;
+    @media (max-width: 900px) {
+      display: block;
+      width: 100%;
+      padding: 15px 0;
+      font-size: 24px;
+      font-weight: 400;
+      color: #fff;
+      background-color: $accent;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  &__cards_list {
+    .catalog__card {
+      width: 100%;
+    }
+    .card {
+      width: 100%;
+      min-height: fit-content;
+      transition: width 0.3s ease;
+    }
+    .card__title {
+      font-size: 16px;
+      margin: 10px auto;
+    }
+    .card__price {
+      font-size: 20px;
+    }
+    .card__wishlist-button {
+      margin-top: 10px;
+    }
+    .card__notify {
+      margin-bottom: 10px;
+    }
+    .card__img-inner {
+      width: 90px;
+      height: 90px;
+    }
+  }
+}
+
+.sort {
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+  }
+
+  &__select {
+    position: relative;
+    padding: 8px 45px 8px 20px;
+    border: 2px solid $basic;
+    font-size: 14px;
+    appearance: none;
+    background-image: url("./img/dropdown.svg");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    cursor: pointer;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__button {
+    opacity: 0.7;
+  }
+
+  &__button_active {
+    opacity: 1;
+  }
+}
+
+.picked {
+  overflow-x: auto;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__button {
+    padding: 4px 22px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.7;
+    background-color: $basic;
+    white-space: nowrap;
+  }
+}
+
+.aside {
+  &__close {
+    display: none;
+    @media (max-width: 900px) {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 99;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 30px;
+  }
+
+  &__tab {
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: $grey;
+    text-transform: uppercase;
+  }
+
+  .tab_active {
+    font-weight: 700;
+    color: $main;
+  }
+}
+
+.form {
+  &__actions {
+    text-align: center;
+  }
+
+  &__submit {
+    margin-bottom: 25px;
+    padding: 17px 85px;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: $accent;
+    transition: opacity 0.3s ease;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__extra {
+    display: inline-block;
+    position: relative;
+    font-size: 13px;
+    font-weight: 400;
+    cursor: pointer;
+    &::before {
+      left: auto;
+      right: -20px;
+    }
+  }
+
+  &__extra-content {
+    margin: 10px 0;
+    font-size: 14px;
+    overflow: hidden;
+    will-change: max-height;
+    transition: all 0.3s ease;
+  }
+
+  &__reset {
+    font-size: 13px;
+    font-weight: 400;
+    color: $grey;
+    background-color: transparent;
+    border-bottom: 1px solid $grey;
+    cursor: pointer;
+  }
+}
+
+.filter {
+  &__item {
+    margin-bottom: 20px;
+    //растянуть кнопку показать еще на 100% кроме первого и второго родителя т.к ее там нет
+    &:not(:nth-child(1), :nth-child(2)) {
+      .filter__input-item {
+        &:last-child {
+          flex: 1 1 100%;
+        }
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    display: inline-block;
+    padding-left: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 20px;
+    margin: 15px 0;
+    overflow: hidden;
+    will-change: max-height;
+    transition: all 0.3s ease;
+  }
+
+  &__input-item {
+    flex: 1 1 50%;
+  }
+
+  &__label {
+    display: inline-flex;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  &__checkbox {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $basic;
+    border-radius: 3px;
+    cursor: pointer;
+    &:checked {
+      background-image: url("./img/checked.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: $accent;
+    }
+  }
+
+  &__radio {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $basic;
+    border-radius: 3px;
+    cursor: pointer;
+    &:checked {
+      background-color: $accent;
+    }
+  }
+
+  &__range-wrapper {
+    justify-content: space-between;
+    margin-right: 25px;
+  }
+
+  &__range {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    cursor: pointer;
+    &.noUi-target {
+      position: relative;
+      height: 2px;
+      border: none;
+      border-radius: 0;
+      background-color: #e0e0e0;
+      box-shadow: none;
+    }
+    .noUi-base {
+      position: relative;
+      z-index: 1;
+      width: calc(100% - 8px);
+      height: 2px;
+    }
+    .noUi-connect {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background-color: $accent;
+      will-change: transform;
+      transform-origin: 0 0;
+      transform-style: flat;
+    }
+    .noUi-origin {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+      will-change: transform;
+    }
+    .noUi-touch-area {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: $accent;
+    }
+    &.noUi-horizontal .noUi-handle {
+      position: absolute;
+      top: -3px;
+      right: -8px;
+      width: 8px;
+      height: 8px;
+      border: none;
+      box-shadow: none;
+      cursor: pointer;
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__range-input {
+    appearance: none;
+    position: absolute;
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__range-text {
+    display: flex;
+    align-items: flex-start;
+    font-family: $secondFamily;
+    font-size: 14px;
+    font-weight: 400;
+    span {
+      display: inline-block;
+      margin-left: 5px;
+      text-decoration: underline;
+    }
+  }
+
+  &__selects {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .filter__title {
+      padding-left: 0;
+      cursor: initial;
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__select-item {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $grey;
+  }
+
+  &__select {
+    font-family: $secondFamily;
+    width: 45px;
+    background-image: url("./img/dropdown.svg");
+    background-repeat: no-repeat;
+    background-position: right center;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  &__show-more {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    border-bottom: 1px solid $accent;
+    color: $accent;
+  }
+
+  &__input-text {
+    width: 280px;
+    padding: 8px 20px;
+    font-size: 12px;
+    font-weight: 400;
+    color: $main;
+    border: 1px solid $grey;
+    outline-color: $accent;
+    &::placeholder {
+      color: $grey;
+    }
+  }
+}
+
+.pagination {
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  &__link {
+    font-family: $secondFamily;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 14px;
+    border: 2px solid transparent;
+    @media (max-width: 600px) {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  }
+
+  &__link_active {
+    color: $accent;
+    border-color: $accent;
+    cursor: default;
+  }
+}
+
+.promotions {
+  justify-content: flex-start;
+  column-gap: 10px;
+
+  &__item {
+    display: flex;
+    flex: 0;
+  }
+
+  &__label {
+    gap: 0;
+    padding: 6px 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: $basic;
+  }
+
+  &__input {
+    appearance: none;
+    &:checked + label {
+      color: #fff;
+      background-color: $accent;
+    }
+  }
+}
